@@ -390,14 +390,89 @@ for unallocated cell
 
 How should the jobs
 
-|     | P   | Q   | R   | S   |
-| --- | --- | --- | --- | --- |
-| A   | 3   | 1   | 2   | 4   |
-| B   | 2   | 6   | 5   | 9   |
-| C   | 8   | 3   | 3   | 2   |
+1. balanced ⇒ (n x n)
+2. unbalanced ⇒ (m x n) m != n
 
-|     | P        | Q   | R   | S   |
-| --- | -------- | --- | --- | --- |
-| A   | **3²⁰⁰** | 1   | 7   | 4   |
-| B   | 2        | 6   | 5   | 9   |
-| C   | 8        | 3   | 3   | 2   |
+## Hungarian Method
+
+1. Row approach subtract the minimum element from all the elements in respective row we get row reduction matrix.
+
+2. Column reduction: subtract the minimum element from all the elements in respective column.
+
+3. Draw minimum no of horizontal and vertical line (N) to cover all zero
+   a. if N = n, n = orderof matrix then an optimal solution can be made.
+   b. if N < n, the go to next step.
+
+4. Determine the smallest uncovered element (n)
+   a. Write uncovered value = uncovered value - n
+   b. Intersection value = intersection value + n
+   c. Line Value (other value) in same.
+
+### 1
+
+Solve the AP by using Hungarian method. Assign the jobs for different machines so as to minimize the total cost.
+
+| Job | A   | B   | C   | D   | E   |
+| --- | --- | --- | --- | --- | --- |
+| 1   | 13  | 8   | 16  | 18  | 19  |
+| 2   | 9   | 15  | 24  | 9   | 12  |
+| 3   | 12  | 9   | 4   | 4   | 4   |
+| 4   | 6   | 12  | 10  | 8   | 13  |
+| 5   | 15  | 17  | 18  | 12  | 20  |
+
+Row Reduction,
+
+| Job | A           | B           | C           | D           | E           |
+| --- | ----------- | ----------- | ----------- | ----------- | ----------- |
+| 1   | 13 - 8 = 5  | 8 - 8 = 0   | 16 - 8 = 8  | 18 - 8 = 10 | 19 - 8 = 11 |
+| 2   | 9 - 9 = 0   | 15 - 9 = 6  | 24 - 9 = 15 | 9 - 9 = 0   | 12 - 9 = 3  |
+| 3   | 12 - 4 = 8  | 9 - 4 = 5   | 4 - 4 = 0   | 4 - 4 = 0   | 4 - 4 = 0   |
+| 4   | 6 - 6 = 0   | 12 - 6 = 6  | 10 - 6 = 4  | 8 - 6 = 2   | 13 - 6 = 7  |
+| 5   | 15 - 12 = 3 | 17 - 12 = 5 | 18 - 12 = 6 | 12 - 12 = 0 | 20 - 12 = 8 |
+
+Output,
+
+| Job | A   | B   | C   | D   | E   |
+| --- | --- | --- | --- | --- | --- |
+| 1   | 5   | 0   | 8   | 10  | 11  |
+| 2   | 0   | 6   | 15  | 0   | 3   |
+| 3   | 8   | 5   | 0   | 0   | 0   |
+| 4   | 0   | 6   | 4   | 2   | 7   |
+| 5   | 3   | 5   | 6   | 0   | 8   |
+
+Column Reduction,
+
+| Job | A         | B         | C         | D         | E     |
+| --- | --------- | --------- | --------- | --------- | ----- |
+| 1   | ~~5~~     | ~~**0**~~ | 8         | ~~10~~    | 11    |
+| 2   | ~~0~~     | ~~6~~     | 15        | ~~0~~     | 3     |
+| 3   | ~~8~~     | ~~5~~     | ~~**0**~~ | ~~0~~     | ~~0~~ |
+| 4   | ~~**0**~~ | ~~6~~     | 4         | ~~2~~     | 7     |
+| 5   | ~~3~~     | ~~5~~     | 6         | ~~**0**~~ | 8     |
+
+N = 4, n = 5
+Since the N < n is true,it means this is not an optimal solution.
+
+| Job | A         | B         | C           | D         | E          |
+| --- | --------- | --------- | ----------- | --------- | ---------- |
+| 1   | ~~5~~     | ~~**0**~~ | 8 - 3 = 5   | ~~10~~    | 11 - 3 = 8 |
+| 2   | ~~0~~     | ~~6~~     | 15 - 3 = 12 | ~~0~~     | 3 - 3 = 0  |
+| 3   | ~~8~~     | ~~5~~     | ~~**0**~~   | ~~0~~     | ~~0~~      |
+| 4   | ~~**0**~~ | ~~6~~     | 4 - 3 = 1   | ~~2~~     | 7 - 3 = 4  |
+| 5   | ~~3~~     | ~~5~~     | 6 - 3 = 3   | ~~**0**~~ | 8 - 3 = 5  |
+
+| Job | A          | B         | C         | D         | E     |
+| --- | ---------- | --------- | --------- | --------- | ----- |
+| 1   | ~~5~~      | ~~**0**~~ | 5         | ~~10~~    | 8     |
+| 2   | ~~0~~      | ~~6~~     | 12        | ~~0~~     | 0     |
+| 3   | 8 + 3 = 11 | 5 + 3 = 8 | ~~**0**~~ | 0 + 3 = 3 | ~~0~~ |
+| 4   | ~~**0**~~  | ~~6~~     | 1         | ~~2~~     | 4     |
+| 5   | ~~3~~      | ~~5~~     | 3         | ~~**0**~~ | 5     |
+
+| Job | A   | B   | C   | D   | E   |
+| --- | --- | --- | --- | --- | --- |
+| 1   | 5   | 0   | 5   | 10  | 8   |
+| 2   | 0   | 6   | 12  | 0   | 0   |
+| 3   | 11  | 8   | 0   | 3   | 0   |
+| 4   | 0   | 6   | 1   | 2   | 4   |
+| 5   | 3   | 5   | 3   | 0   | 5   |
