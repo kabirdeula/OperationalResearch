@@ -71,3 +71,37 @@
                 2𝑥₁ + 3𝑥₂ + 𝑥₃ ≥ 4
                 𝑥₁, 𝑥₂, 𝑥₃ = 0
 ```
+
+4. A Scooter with first cost Rs. 20,000 has depreciation and service pattern as given below:
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+    </tr>
+    <tr>
+        <th>Depreciation</th>
+        <td>28000</td>
+        <td>20000</td>
+        <td>14000</td>
+        <td>5000</td>
+        <td>4000</td>
+        <td>4000</td>
+    </tr>
+    <tr>
+        <th>Annual Service Charge</th>
+        <td>18000</td>
+        <td>21000</td>
+        <td>25000</td>
+        <td>29000</td>
+        <td>34000</td>
+        <td>40000</td>
+    </tr>
+</table>
+    
+    How many years should the Scooter be kept in service before replacement?
