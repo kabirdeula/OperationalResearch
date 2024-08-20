@@ -4,16 +4,14 @@
 
 <table>
     <tr>
-        <th>Raw Material</th>
+        <th rowspan=2>Raw Material</th>
         <th colspan=3>Requirement per unit of product (kg)</th>
-        <th>Total Availability</th>
+        <th rowspan=2>Total Availability (kg)</th>
     </tr>
     <tr>
-        <th><th>
-        <th>A<th>
-        <th>B<th>
-        <th>C<th>
-        <th><th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
     </tr>
     <tr>
         <td>P</td>
