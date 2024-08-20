@@ -28,3 +28,36 @@
         <td>6000</td>
     </tr>
 </table>
+
+2. Find the optimal solution for the following transaction problem using any methods.
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>1</td>
+        <td>4</td>
+        <th>30</th>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+        <td>2</td>
+        <td>1</td>
+        <th>50</th>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>2</td>
+        <td>5</td>
+        <td>9</td>
+        <th>20</th>
+    </tr>
+    <tr>
+        <th>20</th>
+        <th>40</th>
+        <th>30</th>
+        <th>9</th>
+        <th>100</th>
+    </tr>
+</table>
